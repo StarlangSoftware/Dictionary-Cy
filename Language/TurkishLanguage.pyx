@@ -1,7 +1,5 @@
-from Language.Language cimport Language
-
-
 cdef class TurkishLanguage(Language):
+
     VOWELS = "aeıioöuüâî"
     BACK_VOWELS = "aıouâ"
     FRONT_VOWELS = "eiöüî"

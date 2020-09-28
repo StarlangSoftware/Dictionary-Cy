@@ -31,6 +31,7 @@ Language/Language.c
 Language/Language.pxd
 Language/Language.pyx
 Language/TurkishLanguage.c
+Language/TurkishLanguage.pxd
 Language/TurkishLanguage.pyx
 Language/__init__.py
 Syllibification/Syllable.c
