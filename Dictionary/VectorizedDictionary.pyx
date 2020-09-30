@@ -1,7 +1,5 @@
 import math
 from Math.Vector cimport Vector
-from Dictionary.Dictionary cimport Dictionary
-from Dictionary.VectorizedWord cimport VectorizedWord
 
 
 cdef class VectorizedDictionary(Dictionary):

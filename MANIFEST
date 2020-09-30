@@ -12,6 +12,7 @@ Dictionary/TxtWord.c
 Dictionary/TxtWord.pxd
 Dictionary/TxtWord.pyx
 Dictionary/VectorizedDictionary.c
+Dictionary/VectorizedDictionary.pxd
 Dictionary/VectorizedDictionary.pyx
 Dictionary/VectorizedWord.c
 Dictionary/VectorizedWord.pxd
