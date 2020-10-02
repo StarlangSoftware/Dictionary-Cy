@@ -1,15 +1,7 @@
 from bisect import bisect_left
 from functools import cmp_to_key
 
-from Dictionary.Trie.Trie cimport Trie
-from Dictionary.Dictionary cimport Dictionary
-from Dictionary.TxtWord cimport TxtWord
-from Dictionary.Word cimport Word
-
-
 cdef class TxtDictionary(Dictionary):
-
-    cdef dict __misspelledWords
 
     def __init__(self, fileName=None, misspelledFileName=None, comparator=None):
         """

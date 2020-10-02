@@ -7,6 +7,7 @@ Dictionary/ExceptionalWord.c
 Dictionary/ExceptionalWord.pyx
 Dictionary/Pos.pxd
 Dictionary/TxtDictionary.c
+Dictionary/TxtDictionary.pxd
 Dictionary/TxtDictionary.pyx
 Dictionary/TxtWord.c
 Dictionary/TxtWord.pxd
