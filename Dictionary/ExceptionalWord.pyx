@@ -1,11 +1,7 @@
-from Dictionary.Word cimport Word
-from Dictionary.Pos cimport Pos
+from Dictionary.Pos import Pos
 
 
 cdef class ExceptionalWord(Word):
-
-    cdef str __root
-    cdef Pos __pos
 
     def __init__(self, name: str, root: str, pos: Pos):
         """
@@ -37,7 +33,7 @@ cdef class ExceptionalWord(Word):
         """
         return self.__root
 
-    cpdef Pos getPos(self):
+    cpdef object getPos(self):
         """
         Getter for the pos variable.
 

@@ -4,8 +4,9 @@ Dictionary/Dictionary.c
 Dictionary/Dictionary.pxd
 Dictionary/Dictionary.pyx
 Dictionary/ExceptionalWord.c
+Dictionary/ExceptionalWord.pxd
 Dictionary/ExceptionalWord.pyx
-Dictionary/Pos.pxd
+Dictionary/Pos.py
 Dictionary/TxtDictionary.c
 Dictionary/TxtDictionary.pxd
 Dictionary/TxtDictionary.pyx
