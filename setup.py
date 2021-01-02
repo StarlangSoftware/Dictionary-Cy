@@ -11,7 +11,7 @@ setup(
                   'Dictionary': ['*.pxd', '*.pyx', '*.c', '*.py'],
                   'Dictionary.Trie': ['*.pxd', '*.pyx', '*.c'],
                   'Syllibification': ['*.pxd', '*.pyx', '*.c']},
-    url='https://github.com/olcaytaner/Dictionary-Cy',
+    url='https://github.com/StarlangSoftware/Dictionary-Cy',
     license='',
     author='olcaytaner',
     author_email='olcay.yildiz@ozyegin.edu.tr',
