@@ -14,7 +14,7 @@ setup(
     url='https://github.com/olcaytaner/Dictionary-Cy',
     license='',
     author='olcaytaner',
-    author_email='olcaytaner@isikun.edu.tr',
+    author_email='olcay.yildiz@ozyegin.edu.tr',
     description='Simple Dictionary Processing',
     install_requires=['NlpToolkit-Math-Cy']
 )
