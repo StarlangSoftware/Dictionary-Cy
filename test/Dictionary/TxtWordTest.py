@@ -8,7 +8,7 @@ class TxtWordTest(unittest.TestCase):
     dictionary: TxtDictionary
 
     def setUp(self) -> None:
-        self.dictionary = TxtDictionary("../../turkish_dictionary.txt", "../../turkish_misspellings.txt")
+        self.dictionary = TxtDictionary()
 
     def test_VerbType(self):
         verbs = {}
@@ -88,7 +88,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.isAdjective():
                 count = count + 1
-        self.assertEqual(9679, count)
+        self.assertEqual(9687, count)
 
     def test_IsPronoun(self):
         count = 0
@@ -136,7 +136,7 @@ class TxtWordTest(unittest.TestCase):
             word = self.dictionary.getWordWithIndex(i)
             if word.isConjunction():
                 count = count + 1
-        self.assertEqual(51, count)
+        self.assertEqual(52, count)
 
     def test_IsAdverb(self):
         count = 0
