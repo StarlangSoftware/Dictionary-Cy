@@ -4,11 +4,11 @@ from Math.Vector cimport Vector
 
 cdef class VectorizedDictionary(Dictionary):
 
-    def __init__(self):
+    def __init__(self, comparator=None):
         """
         A constructor of VectorizedDictionary class which calls its super class Dictionary.
         """
-        super().__init__()
+        super().__init__(comparator)
 
     cpdef addWord(self, VectorizedWord word):
         """

@@ -16,10 +16,7 @@ cdef class TxtDictionary(Dictionary):
         fileName : str
             String input.
         """
-        if comparator is None:
-            super().__init__(TxtDictionary.turkishLowerCaseComparator)
-        else:
-            super().__init__(comparator)
+        super().__init__(comparator)
         self.__misspelledWords = {}
         if fileName is None:
             fileName = pkg_resources.resource_filename(__name__, 'data/turkish_dictionary.txt')
@@ -28,60 +25,6 @@ cdef class TxtDictionary(Dictionary):
         self.__loadFromText(self.filename)
         if misspelledFileName is not None:
             self.__loadMisspelledWords(misspelledFileName)
-
-    @staticmethod
-    def turkishLowerCaseComparator(wordA: Word, wordB: Word):
-        cdef int i, first, second
-        cdef str firstChar, secondChar
-        LOWERCASE_LETTERS = "abcçdefgğhıijklmnoöprsştuüvyz"
-        for i in range(min(len(wordA.getName()), len(wordB.getName()))):
-            firstChar = wordA.getName()[i:i + 1]
-            secondChar = wordB.getName()[i:i + 1]
-            if firstChar != secondChar:
-                if firstChar in LOWERCASE_LETTERS and secondChar not in LOWERCASE_LETTERS:
-                    return -1
-                elif firstChar not in LOWERCASE_LETTERS and secondChar in LOWERCASE_LETTERS:
-                    return 1
-                elif firstChar in LOWERCASE_LETTERS and secondChar in LOWERCASE_LETTERS:
-                    first = LOWERCASE_LETTERS.index(firstChar)
-                    second = LOWERCASE_LETTERS.index(secondChar)
-                    if first < second:
-                        return -1
-                    elif first > second:
-                        return 1
-        if len(wordA.getName()) < len(wordB.getName()):
-            return -1
-        elif len(wordA.getName()) > len(wordB.getName()):
-            return 1
-        else:
-            return 0
-
-    @staticmethod
-    def turkishIgnoreCaseComparator(wordA: Word, wordB: Word):
-        cdef int i, first, second
-        cdef str firstChar, secondChar
-        IGNORE_CASE_LETTERS = "aAbBcCçÇdDeEfFgGğĞhHıIiİjJkKlLmMnNoOöÖpPrRsSşŞtTuUüÜvVyYzZ"
-        for i in range(min(len(wordA.getName()), len(wordB.getName()))):
-            firstChar = wordA.getName()[i:i + 1]
-            secondChar = wordB.getName()[i:i + 1]
-            if firstChar != secondChar:
-                if firstChar in IGNORE_CASE_LETTERS and secondChar not in IGNORE_CASE_LETTERS:
-                    return -1
-                elif firstChar not in IGNORE_CASE_LETTERS and secondChar in IGNORE_CASE_LETTERS:
-                    return 1
-                elif firstChar in IGNORE_CASE_LETTERS and secondChar in IGNORE_CASE_LETTERS:
-                    first = IGNORE_CASE_LETTERS.index(firstChar)
-                    second = IGNORE_CASE_LETTERS.index(secondChar)
-                    if first < second:
-                        return -1
-                    elif first > second:
-                        return 1
-        if len(wordA.getName()) < len(wordB.getName()):
-            return -1
-        elif len(wordA.getName()) > len(wordB.getName()):
-            return 1
-        else:
-            return 0
 
     cpdef addNumber(self, str name):
         """
