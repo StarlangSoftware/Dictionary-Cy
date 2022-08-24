@@ -14,6 +14,7 @@ cdef class TxtWord(Word):
         """
         super().__init__(name)
         self.__flags = []
+        self.__morphology = ""
         if flag is not None:
             self.addFlag(flag)
 
@@ -38,6 +39,12 @@ cdef class TxtWord(Word):
             String input to remove.
         """
         self.__flags.remove(flag)
+
+    cpdef str getMorphology(self):
+        return self.__morphology
+
+    cpdef setMorphology(self, morphology: str):
+        self.__morphology = morphology
 
     cpdef str verbType(self):
         """
