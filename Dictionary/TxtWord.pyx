@@ -293,6 +293,28 @@ cdef class TxtWord(Word):
         """
         return "IS_DUP" in self.__flags
 
+    cpdef bint isCode(self):
+        """
+        The isCode method returns true if flags list contains IS_CODE.
+
+        RETURNS
+        -------
+        bool
+            true if flags list contains IS_CODE.
+        """
+        return "IS_CODE" in self.__flags
+
+    cpdef bint isMetric(self):
+        """
+        The isMetric method returns true if flags list contains IS_METRIC.
+
+        RETURNS
+        -------
+        bool
+            true if flags list contains IS_METRIC.
+        """
+        return "IS_METRIC" in self.__flags
+
     cpdef bint isHeader(self):
         """
         The isHeader method returns true if flags list contains IS_HEADER.

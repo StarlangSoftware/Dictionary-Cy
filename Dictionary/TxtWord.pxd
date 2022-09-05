@@ -17,6 +17,8 @@ cdef class TxtWord(Word):
     cpdef bint isAbbreviation(self)
     cpdef bint isInterjection(self)
     cpdef bint isDuplicate(self)
+    cpdef bint isCode(self)
+    cpdef bint isMetric(self)
     cpdef bint isHeader(self)
     cpdef bint isAdjective(self)
     cpdef bint isPureAdjective(self)
