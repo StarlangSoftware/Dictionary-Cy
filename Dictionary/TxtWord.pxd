@@ -4,6 +4,7 @@ from Dictionary.Word cimport Word
 cdef class TxtWord(Word):
 
     cdef list __flags
+    cdef str morphology
 
     cpdef addFlag(self, str flag)
     cpdef removeFlag(self, str flag)
