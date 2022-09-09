@@ -39,12 +39,6 @@ cdef class TxtWord(Word):
         """
         self.__flags.remove(flag)
 
-    cpdef str getMorphology(self):
-        return ""
-
-    cpdef setMorphology(self, morphology: str):
-        pass
-
     cpdef str verbType(self):
         """
         The verbType method checks flags list and returns the corresponding cases.

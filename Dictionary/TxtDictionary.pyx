@@ -23,8 +23,6 @@ cdef class TxtDictionary(Dictionary):
             self.__loadMisspelledWords(pkg_resources.resource_filename(__name__, 'data/turkish_misspellings.txt'))
         self.filename = fileName
         self.__loadFromText(self.filename)
-        if fileName is None or morphologicalLexicon is None:
-            self.__loadMorphologicalLexicon(pkg_resources.resource_filename(__name__, 'data/turkish_morphological_lexicon.txt'))
         if misspelledFileName is not None:
             self.__loadMisspelledWords(misspelledFileName)
 
@@ -302,28 +300,6 @@ cdef class TxtDictionary(Dictionary):
             wordList = line.split()
             if len(wordList) == 2:
                 self.__misspelledWords[wordList[0]] = wordList[1]
-        inputFile.close()
-
-    def __loadMorphologicalLexicon(self, str fileName):
-        """
-        The loadMisspellWords method takes a String filename as an input. It reads given file line by line and splits
-        according to space and assigns each word with its misspelled form to the the misspelledWords hashMap.
-
-        PARAMETERS
-        ----------
-        fileName : str
-            File name input.
-        """
-        cdef str line
-        cdef list lines, wordList
-        inputFile = open(fileName, "r", encoding="utf8")
-        lines = inputFile.readlines()
-        for line in lines:
-            wordList = line.split()
-            if len(wordList) == 2:
-                word = self.getWord(wordList[0])
-                if word is not None and isinstance(word, TxtWord):
-                    word.setMorphology(wordList[1])
         inputFile.close()
 
     cpdef str getCorrectForm(self, str misspelledWord):

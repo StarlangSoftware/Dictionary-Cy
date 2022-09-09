@@ -7,8 +7,6 @@ cdef class TxtWord(Word):
 
     cpdef addFlag(self, str flag)
     cpdef removeFlag(self, str flag)
-    cpdef str getMorphology(self)
-    cpdef setMorphology(self, str morphology)
     cpdef str verbType(self)
     cpdef bint samePos(self, TxtWord word)
     cpdef bint isNominal(self)
