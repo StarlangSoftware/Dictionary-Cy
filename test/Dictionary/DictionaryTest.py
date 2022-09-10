@@ -5,9 +5,9 @@ from Dictionary.TxtWord import TxtWord
 
 
 class DictionaryTest(unittest.TestCase):
-    dictionary : TxtDictionary
-    lowerCaseDictionary : TxtDictionary
-    mixedCaseDictionary : TxtDictionary
+    dictionary: TxtDictionary
+    lowerCaseDictionary: TxtDictionary
+    mixedCaseDictionary: TxtDictionary
 
     def setUp(self) -> None:
         self.dictionary = TxtDictionary()
