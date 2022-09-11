@@ -22,6 +22,7 @@ cdef class TxtDictionary(Dictionary):
     cpdef mergeDictionary(self, str secondFileName, str mergedFileName)
     cpdef __loadFromText(self, str fileName)
     cpdef __loadMisspelledWords(self, str fileName)
+    cpdef __loadMorphologicalLexicon(self, str fileName)
     cpdef str getCorrectForm(self, str misspelledWord)
     cpdef saveAsTxt(self, str fileName)
     cpdef __addWordWhenRootSoften(self, Trie trie, Py_UNICODE last, str root, TxtWord word)

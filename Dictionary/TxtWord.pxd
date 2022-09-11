@@ -4,9 +4,12 @@ from Dictionary.Word cimport Word
 cdef class TxtWord(Word):
 
     cdef list __flags
+    cdef str morphology
 
     cpdef addFlag(self, str flag)
     cpdef removeFlag(self, str flag)
+    cpdef str getMorphology(self)
+    cpdef setMorphology(self, str morphology)
     cpdef str verbType(self)
     cpdef bint samePos(self, TxtWord word)
     cpdef bint isNominal(self)
