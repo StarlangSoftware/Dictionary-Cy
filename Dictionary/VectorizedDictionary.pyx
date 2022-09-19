@@ -39,19 +39,19 @@ cdef class VectorizedDictionary(Dictionary):
         VectorizedWord
             VectorizedWord type result which holds the most similar word to the given word.
         """
-        cdef double distance, maxDistance
-        cdef VectorizedWord result, word, currentWord
-        maxDistance = -1
+        cdef double distance, max_distance
+        cdef VectorizedWord result, word, current_word
+        max_distance = -1
         result = None
         word = self.getWord(name)
         if word is None:
             return None
-        for currentWord in self.words:
-            if currentWord != word and isinstance(word, VectorizedWord):
-                distance = word.getVector().dotProduct(currentWord.getVector())
-                if distance > maxDistance:
-                    maxDistance = distance
-                    result = currentWord
+        for current_word in self.words:
+            if current_word != word and isinstance(word, VectorizedWord):
+                distance = word.getVector().dotProduct(current_word.getVector())
+                if distance > max_distance:
+                    max_distance = distance
+                    result = current_word
         return result
 
     cdef makeComparator(self, VectorizedWord comparedWord):
@@ -88,16 +88,16 @@ cdef class VectorizedDictionary(Dictionary):
         list
             list result.
         """
-        cdef list resultWords
-        cdef VectorizedWord word, currentWord
-        resultWords = []
+        cdef list result_words
+        cdef VectorizedWord word, current_word
+        result_words = []
         word = self.getWord(name)
         if word is None:
-            return resultWords
-        for currentWord in self.words:
-            resultWords.append(currentWord)
-        resultWords.sort(key=self.makeComparator(word))
-        return resultWords[0: k]
+            return result_words
+        for current_word in self.words:
+            result_words.append(current_word)
+        result_words.sort(key=self.makeComparator(word))
+        return result_words[0: k]
 
     cpdef list kMeansClustering(self, int iteration, int k):
         """
@@ -118,16 +118,16 @@ cdef class VectorizedDictionary(Dictionary):
         """
         cdef list result, means
         cdef Vector v
-        cdef int vectorSize, i, j, maxClusterIndex
-        cdef double maxClusterDistance
-        cdef VectorizedWord vectorizedWord
+        cdef int vector_size, i, j, max_cluster_index
+        cdef double max_cluster_distance
+        cdef VectorizedWord vectorized_word
         result = []
         means = []
-        vectorSize = self.words[0].getVector().size()
+        vector_size = self.words[0].getVector().size()
         for i in range(k):
             result.append([])
             v = Vector()
-            v.initAllSame(vectorSize, 0)
+            v.initAllSame(vector_size, 0)
             means.append(v)
         for i in range(len(self.words)):
             result[i % k].append(self.words[i])
@@ -138,15 +138,15 @@ cdef class VectorizedDictionary(Dictionary):
         for i in range(iteration):
             for j in range(k):
                 result[j].clear()
-            for vectorizedWord in self.words:
-                maxClusterDistance = means[0].dotProduct(vectorizedWord.getVector())
-                maxClusterIndex = 0
+            for vectorized_word in self.words:
+                max_cluster_distance = means[0].dotProduct(vectorized_word.getVector())
+                max_cluster_index = 0
                 for j in range(1, k):
-                    clusterDistance = means[j].dotProduct(vectorizedWord.getVector())
-                    if clusterDistance > maxClusterDistance:
-                        maxClusterDistance = clusterDistance
-                        maxClusterIndex = j
-                result[maxClusterIndex].append(vectorizedWord)
+                    cluster_distance = means[j].dotProduct(vectorized_word.getVector())
+                    if cluster_distance > max_cluster_distance:
+                        max_cluster_distance = cluster_distance
+                        max_cluster_index = j
+                result[max_cluster_index].append(vectorized_word)
             for j in range(k):
                 means[j].clear()
                 for word in result[j]:

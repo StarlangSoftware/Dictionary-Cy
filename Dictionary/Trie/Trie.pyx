@@ -9,9 +9,11 @@ cdef class Trie:
         """
         A constructor of Trie class which creates a new TrieNode as rootNode.
         """
-        self.__rootNode = TrieNode()
+        self.__root_node = TrieNode()
 
-    cpdef addWord(self, str word, Word root):
+    cpdef addWord(self,
+                  str word,
+                  Word root):
         """
         The addWord method which takes a String word and a Word root as inputs and adds given word and root to the
         rootNode.
@@ -23,7 +25,7 @@ cdef class Trie:
         root : Word
             Word input.
         """
-        self.__rootNode.addWord(word, root)
+        self.__root_node.addWord(word, root)
 
     cpdef set getWordsWithPrefix(self, str surfaceForm):
         """
@@ -45,7 +47,7 @@ cdef class Trie:
         cdef int i
         cdef TrieNode current
         cdef set words
-        current = self.__rootNode
+        current = self.__root_node
         words = set()
         for i in range(len(surfaceForm)):
             current = current.getChild(surfaceForm[i])
@@ -77,7 +79,7 @@ cdef class Trie:
         """
         cdef int i
         cdef TrieNode current
-        current = self.__rootNode
+        current = self.__root_node
         for i in range(len(_hash)):
             current = current.getChild(_hash[i])
             if current is None:

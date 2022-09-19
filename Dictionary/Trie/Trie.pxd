@@ -5,7 +5,7 @@ from Dictionary.TxtWord cimport TxtWord
 
 cdef class Trie:
 
-    cdef TrieNode __rootNode
+    cdef TrieNode __root_node
 
     cpdef addWord(self, str word, Word root)
     cpdef set getWordsWithPrefix(self, str surfaceForm)

@@ -29,3 +29,6 @@ cdef class VectorizedWord(Word):
             the vector variable.
         """
         return self.__vector
+
+    def __repr__(self):
+        return f"{self.name} {self.__vector}"

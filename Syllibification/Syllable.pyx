@@ -21,3 +21,6 @@ cdef class Syllable:
             The syllable variable.
         """
         return self.__syllable
+
+    def __repr__(self):
+        return self.__syllable

@@ -6,7 +6,7 @@ from Dictionary.Word cimport Word
 
 cdef class TxtDictionary(Dictionary):
 
-    cdef dict __misspelledWords
+    cdef dict __misspelled_words
 
     cpdef addNumber(self, str name)
     cpdef addRealNumber(self, str name)
