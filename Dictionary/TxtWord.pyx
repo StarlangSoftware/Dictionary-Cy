@@ -43,9 +43,17 @@ cdef class TxtWord(Word):
         self.__flags.remove(flag)
 
     cpdef str getMorphology(self):
+        """
+        Accessor for the inner morphology of the word.
+        :return: Inner morphology of the word.
+        """
         return self.morphology
 
     cpdef setMorphology(self, morphology: str):
+        """
+        Mutator for the inner morphology of the word.
+        :param morphology: New inner morphology of the word.
+        """
         self.morphology = morphology
 
     cpdef str verbType(self):
