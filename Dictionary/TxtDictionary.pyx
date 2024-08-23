@@ -1,5 +1,6 @@
 from bisect import bisect_left
 from functools import cmp_to_key
+from Util.FileUtils cimport FileUtils
 
 import pkg_resources
 
@@ -302,15 +303,7 @@ cdef class TxtDictionary(Dictionary):
         fileName : str
             File name input.
         """
-        cdef str line
-        cdef list lines, word_list
-        input_file = open(fileName, "r", encoding="utf8")
-        lines = input_file.readlines()
-        for line in lines:
-            word_list = line.split()
-            if len(word_list) == 2:
-                self.__misspelled_words[word_list[0]] = word_list[1]
-        input_file.close()
+        self.__misspelled_words = FileUtils.readHashMap(fileName)
 
     cpdef __loadMorphologicalLexicon(self, str fileName):
         """

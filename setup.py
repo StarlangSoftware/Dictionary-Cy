@@ -9,7 +9,7 @@ setup(
     ext_modules=cythonize(["Dictionary/*.pyx", "Dictionary/Trie/*.pyx", "Language/*.pyx", "Syllibification/*.pyx"],
                           compiler_directives={'language_level': "3"}),
     name='NlpToolkit-Dictionary-Cy',
-    version='1.0.31',
+    version='1.0.32',
     packages=['Language', 'Dictionary', 'Dictionary.data', 'Dictionary.Trie', 'Syllibification'],
     package_data={'Language': ['*.pxd', '*.pyx', '*.c'],
                   'Dictionary': ['*.pxd', '*.pyx', '*.c', '*.py'],
@@ -21,7 +21,7 @@ setup(
     author='olcaytaner',
     author_email='olcay.yildiz@ozyegin.edu.tr',
     description='Simple Dictionary Processing',
-    install_requires=['NlpToolkit-Math-Cy'],
+    install_requires=['NlpToolkit-Math-Cy', 'NlpToolkit-Util-Cy'],
     long_description=long_description,
     long_description_content_type='text/markdown'
 )
