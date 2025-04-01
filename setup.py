@@ -8,8 +8,8 @@ from Cython.Build import cythonize
 setup(
     ext_modules=cythonize(["Dictionary/*.pyx", "Dictionary/Trie/*.pyx", "Language/*.pyx", "Syllibification/*.pyx"],
                           compiler_directives={'language_level': "3"}),
-    name='NlpToolkit-Dictionary-Cy',
-    version='1.0.32',
+    name='nlptoolkit-dictionary-cy',
+    version='1.0.33',
     packages=['Language', 'Dictionary', 'Dictionary.data', 'Dictionary.Trie', 'Syllibification'],
     package_data={'Language': ['*.pxd', '*.pyx', '*.c'],
                   'Dictionary': ['*.pxd', '*.pyx', '*.c', '*.py'],
