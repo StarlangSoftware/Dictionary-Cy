@@ -1,4 +1,4 @@
-from Language.TurkishLanguage import TurkishLanguage
+from Language.TurkishLanguage cimport TurkishLanguage
 from Syllibification.Syllable cimport Syllable
 
 

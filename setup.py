@@ -9,7 +9,7 @@ setup(
     ext_modules=cythonize(["Dictionary/*.pyx", "Dictionary/Trie/*.pyx", "Language/*.pyx", "Syllibification/*.pyx"],
                           compiler_directives={'language_level': "3"}),
     name='nlptoolkit-dictionary-cy',
-    version='1.0.33',
+    version='1.0.34',
     packages=['Language', 'Dictionary', 'Dictionary.data', 'Dictionary.Trie', 'Syllibification'],
     package_data={'Language': ['*.pxd', '*.pyx', '*.c'],
                   'Dictionary': ['*.pxd', '*.pyx', '*.c', '*.py'],
